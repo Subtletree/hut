@@ -1,0 +1,30 @@
+<h4>Sign up</h4>
+<form class="forms" {{action "save" on="submit"}}>
+  <section>
+    <label>First name
+      {{input value=user.first_name}}
+    </label>
+  </section>
+  <section>
+    <label>Mobile number
+      {{input value=user.mobile_number}}
+    </label>
+  </section>
+  <section>
+    <label>Email
+      {{input value=user.email}}
+    </label>
+  </section>
+  <section>
+    <label>Password
+      {{input type="password" value=user.password}}
+    </label>
+  </section>
+  <section>
+    <label>Password confirmation
+      {{input type="password" value=user.password_confirmation}}
+    </label>
+  </section>
+    {{error-messages resource=user}}
+  <button class="right" type="submit">Sign up</button>
+</form>

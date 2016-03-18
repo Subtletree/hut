@@ -1,0 +1,42 @@
+//@import "pod-styles";
+
+// GENERAL------------------------------------------------
+.content {
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 64px;
+  padding: 5px;
+}
+a {
+  cursor: pointer;
+}
+
+// HEADER -------------------------------------------------
+.header {
+  height: 50px;
+  border-bottom: 1px solid #eee;
+  padding: 0 10%;
+}
+.nav-el {
+  display: inline-block;
+  padding: 12px;
+}
+
+@media (min-width: 751px) {
+  .vertical-line {
+    height: 100px;
+    border-left: 1px solid #ddd;
+    margin: 20px 0;
+    margin-left: 50%;
+  }
+}
+
+// error-messages
+.alert-error > ul {
+  margin-bottom: 0;
+}
+
+.intention-user {
+  background-color: #D7CCC8;
+  padding: 20px;
+}

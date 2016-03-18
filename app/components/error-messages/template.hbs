@@ -1,0 +1,11 @@
+{{#if resource.errors.content.length}}
+  <div class="alert alert-error">
+    <ul>
+      {{#each resource.errors.content as |error|}}
+        <li>
+          {{titleize error.attribute}} {{error.message}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}

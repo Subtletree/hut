@@ -1,0 +1,18 @@
+
+<row>
+
+  <column cols="5">
+  {{sign-up authenticate=(action 'authenticate_user')}}
+  </column>
+
+  <column cols="2" class="text-centered">
+    <div class="vertical-line"></div>
+    OR
+    <div class="vertical-line"></div>
+  </column>
+
+  <column cols="5">
+    {{login-form errorMessage=errorMessage authenticate=(action 'authenticate_user')}}
+  </column>
+
+</row>

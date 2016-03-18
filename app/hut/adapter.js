@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import DS from 'ember-data';
-import ENV from "../config/environment";
 
 export default  DS.JSONAPIAdapter.extend({
   service: 'DOC_Huts',
@@ -25,7 +24,7 @@ export default  DS.JSONAPIAdapter.extend({
     });
   },
 
-  // Doesn't return geometryfor performance reasons, use the query to do that.
+  // Doesn't return geometry for performance reasons, use the query to do that.
   findAll: function (store, type, sinceToken) {
     var url = this.buildURL(),
       data = this.get('data');

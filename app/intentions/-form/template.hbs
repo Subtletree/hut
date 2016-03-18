@@ -1,0 +1,55 @@
+<form id="new-intention-form" class="forms" {{action "save" on="submit"}}>
+
+  {{error-messages resource=model}}
+  
+  <section>
+    <label>Intention name
+      {{input value=model.name}}
+    </label>
+  </section>
+
+  <section>
+    <label>Number of participants
+      {{#x-select value=model.number_of_participants action="numParticipantsChanged"}}
+       {{#x-option value=""}}{{/x-option}}
+       {{#x-option value="1"}}1{{/x-option}}
+       {{#x-option value="2"}}2{{/x-option}}
+       {{#x-option value="3"}}3{{/x-option}}
+       {{#x-option value="4"}}4{{/x-option}}
+       {{#x-option value="5"}}5{{/x-option}}
+       {{#x-option value="6"}}6{{/x-option}}
+       {{#x-option value="7"}}7{{/x-option}}
+       {{#x-option value="8"}}8{{/x-option}}
+       {{#x-option value="9"}}9{{/x-option}}
+       {{#x-option value="10"}}10{{/x-option}}
+      {{/x-select}}
+    </label>
+  </section>
+
+  {{#x-times model.number_of_participants as |index|}}
+    <section>
+      <label>Participant Name {{sum index 1}}
+        {{input value=''}}
+      </label>
+    </section>
+  {{/x-times}}
+
+  <section>
+    <label>Emergency contact name
+      {{input value=model.emergency_name}}
+    </label>
+  </section>
+
+  <section>
+    <label>Emergency contact number
+      {{input value=model.emergency_number}}
+    </label>
+  </section>
+
+</form>
+
+{{#unless session.isAuthenticated}}
+  {{intention-user session=session}}
+{{/unless}}
+
+{{input type="submit" value="Save" class="btn right" disabled=readyForSubmit form="new-intention-form"}}
