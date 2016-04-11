@@ -21,6 +21,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
     "ember-ajax": "0.7.1",
+    "ember-browserify": "^1.1.8",
     "ember-cli": "^2.4.2",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.5",
@@ -33,6 +34,7 @@
     "ember-cli-sass": "5.3.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-component-css": "git+https://github.com/ebryn/ember-component-css.git#b2bc210d78e150e138b44b8b7c76ebbc025b4e53",
     "ember-data": "^2.4.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
@@ -40,8 +42,10 @@
     "ember-resolver": "^2.0.3",
     "ember-simple-auth": "1.1.0-beta.3",
     "ember-simple-auth-token": "1.0.0",
-    "ember-x-times": "0.2.0",
     "emberx-select": "2.0.2",
     "loader.js": "^4.0.0"
+  },
+  "dependencies": {
+    "moment": "^2.12.0"
   }
 }

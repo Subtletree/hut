@@ -1,51 +1,73 @@
 <form id="new-intention-form" class="forms" {{action "save" on="submit"}}>
 
   {{error-messages resource=model}}
-  
-  <section>
-    <label>Intention name
-      {{input value=model.name}}
-    </label>
-  </section>
+  <row>
+    <column cols="6">
+      <section>
+        <label>Name your trip
+          {{input value=model.name}}
+        </label>
+      </section>
 
-  <section>
-    <label>Number of participants
-      {{#x-select value=model.number_of_participants action="numParticipantsChanged"}}
-       {{#x-option value=""}}{{/x-option}}
-       {{#x-option value="1"}}1{{/x-option}}
-       {{#x-option value="2"}}2{{/x-option}}
-       {{#x-option value="3"}}3{{/x-option}}
-       {{#x-option value="4"}}4{{/x-option}}
-       {{#x-option value="5"}}5{{/x-option}}
-       {{#x-option value="6"}}6{{/x-option}}
-       {{#x-option value="7"}}7{{/x-option}}
-       {{#x-option value="8"}}8{{/x-option}}
-       {{#x-option value="9"}}9{{/x-option}}
-       {{#x-option value="10"}}10{{/x-option}}
-      {{/x-select}}
-    </label>
-  </section>
+      <section>
+        <label>Number of participants
+          {{#x-select value=model.number_of_participants action="numParticipantsChanged"}}
+           {{#x-option value=""}}{{/x-option}}
+           {{#x-option value="1"}}1{{/x-option}}
+           {{#x-option value="2"}}2{{/x-option}}
+           {{#x-option value="3"}}3{{/x-option}}
+           {{#x-option value="4"}}4{{/x-option}}
+           {{#x-option value="5"}}5{{/x-option}}
+           {{#x-option value="6"}}6{{/x-option}}
+           {{#x-option value="7"}}7{{/x-option}}
+           {{#x-option value="8"}}8{{/x-option}}
+           {{#x-option value="9"}}9{{/x-option}}
+           {{#x-option value="10"}}10{{/x-option}}
+           {{#x-option value="11"}}11{{/x-option}}
+           {{#x-option value="12"}}12{{/x-option}}
+           {{#x-option value="13"}}13{{/x-option}}
+           {{#x-option value="14"}}14{{/x-option}}
+           {{#x-option value="15"}}15{{/x-option}}
+           {{#x-option value="16"}}16{{/x-option}}
+           {{#x-option value="17"}}17{{/x-option}}
+           {{#x-option value="18"}}18{{/x-option}}
+           {{#x-option value="19"}}19{{/x-option}}
+           {{#x-option value="20"}}20{{/x-option}}
+          {{/x-select}}
+        </label>
+      </section>
 
-  {{#x-times model.number_of_participants as |index|}}
-    <section>
-      <label>Participant Name {{sum index 1}}
-        {{input value=''}}
-      </label>
-    </section>
-  {{/x-times}}
+      {{#x-times model.number_of_participants x_class='x-times-flex'}}
+        <section>
+          <label>Participant name
+            {{input value=''}}
+          </label>
+        </section>
+      {{/x-times}}
 
-  <section>
-    <label>Emergency contact name
-      {{input value=model.emergency_name}}
-    </label>
-  </section>
+      {{date-range-picker dates=dates start=model.start_date end=model.end_date}}
 
-  <section>
-    <label>Emergency contact number
-      {{input value=model.emergency_number}}
-    </label>
-  </section>
+    </column>
+    <column cols="6">
+      <strong>Emergency contact ?</strong>
+      <section>
+        <label>Name
+          {{input value=model.emergency_name}}
+        </label>
+      </section>
 
+      <section>
+        <label>Mobile number
+          {{input value=model.emergency_number}}
+        </label>
+      </section>
+    </column>
+  </row>
+  <row>
+    <column cols="12">
+      {{intentions/date-table intention=model}}
+    </column>
+  </row>
 </form>
 
 {{#unless session.isAuthenticated}}

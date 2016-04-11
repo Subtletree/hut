@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     this._super();
     var user = this.get('user');
     if (user.get('isNew')) {
-      user.destroyRecord();
+      user.unloadRecord();
     }
   },
   actions: {

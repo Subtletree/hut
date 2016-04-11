@@ -1,7 +1,9 @@
 <nav class="header">
   <div class='nav-el'>
     {{#link-to 'application'}}Intention Book{{/link-to}}
-
+    {{#if session.isAuthenticated}}
+      {{#link-to 'users.show'}}My Intentions{{/link-to}}
+    {{/if}}
   </div>
 
   <div class='nav-el right'>

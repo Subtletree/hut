@@ -6,6 +6,8 @@ export default DS.Model.extend({
   number_of_participants: DS.attr('number'),
   emergency_name: DS.attr('string'),
   emergency_number: DS.attr('string'),
+  start_date: DS.attr('date', {defaultValue: ''}),
+  end_date: DS.attr('date', {defaultValue: ''}),
   user: DS.belongsTo('user'),
   bookings: DS.hasMany('booking')
 });

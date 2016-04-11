@@ -6,13 +6,6 @@ export default Ember.Controller.extend({
     return !this.get('session.isAuthenticated');
   }),
   actions: {
-    save() {
-      console.log(this.get('model'));
-      this.get('model').save().then(function(intention) {
-        this.transitionToRoute('intentions.show', intention);
-      }, function(reason) {
-      });
-    },
     numParticipantsChanged() {
       console.log('changed');
     }

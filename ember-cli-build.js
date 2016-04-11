@@ -21,6 +21,8 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import('vendor/kube.css');
+  app.import('vendor/bootstrap-datepicker3.standalone.min.css');
+  app.import('vendor/bootstrap-datepicker.min.js');
 
   return app.toTree();
 };

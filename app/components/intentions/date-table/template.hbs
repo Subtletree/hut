@@ -1,0 +1,12 @@
+{{#if dates}}
+  <thead>
+    <th>Date</th>
+    <th>Intention</th>
+    <th>Sleep at</th>
+  </thead>
+  <tbody>
+    {{#each dates as |date|}}
+      {{intentions/date-row date=date}}
+    {{/each}}
+  </tbody>
+{{/if}}

@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('users');
+  this.route('users', function() {
+    this.route('show', {path: 'me'});
+  });
   this.route('login');
   this.route('huts', function() {
     this.route('show');
@@ -14,7 +16,7 @@ Router.map(function() {
   });
   this.route('intentions', function() {
     this.route('new');
-    this.route('show');
+    this.route('show', {path: ':intention_id'});
   });
 });
 

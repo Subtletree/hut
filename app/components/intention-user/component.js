@@ -4,13 +4,11 @@ export default Ember.Component.extend({
   classNames: ['intention-user'],
   actions: {
     authenticate_user: function(credentials) {
-      console.log(credentials);
       //var credentials = this.getProperties('identification', 'password'),
-      var authenticator = 'authenticator:token';
+      var authenticator = 'authenticator:jwt';
 
       this.get('session').authenticate(authenticator, credentials).catch((reason) => {
         this.set('errorMessage', reason.errors || reason);
-        console.log(reason);
       });
     }
   }
