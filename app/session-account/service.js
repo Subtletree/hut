@@ -17,7 +17,7 @@ export default Ember.Service.extend({
           relationships: {}
         }
       });
-      this.set('session.currentUser', user)
+      this.set('session.currentUser', user);
     }
   }
 });

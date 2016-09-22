@@ -1,5 +1,8 @@
+$ember-power-select-border-color: #dfdfdf;
+$ember-power-select-focus-border-color: #222222;
+$ember-power-select-default-border-radius: 2px;
+@import "ember-power-select";
 @import "pod-styles.scss";
-
 
 // GENERAL------------------------------------------------
 .content {
@@ -10,6 +13,13 @@
 }
 a {
   cursor: pointer;
+}
+
+// MISC -------------------------------------------------
+.ember-power-select-trigger {
+  height: 40px;
+  padding: 1.2rem 1rem;
+  line-height: 1;
 }
 
 // HEADER -------------------------------------------------
@@ -43,3 +53,14 @@ a {
 }
 
 // Intention#NEW -------------------------------------------------
+// Intention#SHOW ------------------------------------------------
+#intention-side {
+  > section {
+    background-color: #efefef;
+    padding: 10px;
+    margin-bottom: 20px;
+    > h5 {
+      font-weight: normal;
+    }
+  }
+}

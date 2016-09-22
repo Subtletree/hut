@@ -1,0 +1,7 @@
+<td>{{moment-format booking.date 'ddd Do MMMM'}}</td>
+<td>{{booking.comment}}</td>
+<td>
+  {{#if isHut}}
+    {{if booking.hut.isLoading 'Loading'}}{{booking.hut.name}}
+  {{/if}}
+</td>

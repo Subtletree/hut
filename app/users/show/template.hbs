@@ -1,4 +1,11 @@
 {{model.email}}
-{{outlet}}
-{{#link-to 'intentions.new'}}New Intention{{/link-to}}
-{{users/intention-list user=model}}
+{{session.currentUser}}
+<row>
+  <column cols="3">
+    {{#link-to 'intentions.new'}}New Intention{{/link-to}}
+    {{users/intention-list user=model}}
+  </column>
+  <column cols="9">
+    {{outlet}}
+  </column>
+</row>

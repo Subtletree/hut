@@ -13,7 +13,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     if (currentRoute === 'intentions.new') {
       // Do nothing
     } else {
-      this._super();
+      this._super(...arguments);
     }
 
     this._loadCurrentUser().then(()=>{

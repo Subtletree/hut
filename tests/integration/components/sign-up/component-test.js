@@ -5,20 +5,21 @@ moduleForComponent('sign-up', 'Integration | Component | sign up', {
   integration: true
 });
 
-test('it renders', function(assert) {
+test('it passes credentials to external action', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{sign-up}}`);
+  // test double for the external action
+  this.set('externalAction', (actual) => {
+    let expected = {identification: "email@example.com", password: "passw0rd"};
+    assert.deepEqual(actual, expected);
+  });
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{sign-up authenticate=(action externalAction)}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#sign-up}}
-      template block text
-    {{/sign-up}}
-  `);
+  this.$('label:contains("Email")')   .find('input').val('email@example.com').change();
+  this.$('label:contains("Password")').find('input').val('passw0rd').change();
+  this.$('label:contains("Password confirmation")').find('input').val('passw0rd').change();
+  this.$('button').click();
 
-  assert.equal(this.$().text().trim(), 'template block text');
 });

@@ -5,20 +5,20 @@ moduleForComponent('login-form', 'Integration | Component | login form', {
   integration: true
 });
 
-test('it renders', function(assert) {
+test('it passes credentials to external action', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{login-form}}`);
+  // test double for the external action
+  this.set('externalAction', (actual) => {
+    let expected = {identification: "email@example.com", password: "passw0rd"};
+    assert.deepEqual(actual, expected);
+  });
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{login-form authenticate=(action externalAction)}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#login-form}}
-      template block text
-    {{/login-form}}
-  `);
+  this.$('#email').val('email@example.com').change();
+  this.$('#password').val('passw0rd').change();
+  this.$('button').click();
 
-  assert.equal(this.$().text().trim(), 'template block text');
 });

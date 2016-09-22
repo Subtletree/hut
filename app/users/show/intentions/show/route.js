@@ -5,13 +5,6 @@ export default Ember.Route.extend({
     return this.store.findRecord('intention', params.intention_id);
   },
   actions: {
-    updateDates: function(start, end) {
-      model.setProperties({
-        startDate: start,
-        endDate: end
-      });
-      this.syncBookings(model);
-    },
     editIntention: function() {
       console.log('a');
     },

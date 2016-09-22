@@ -2,7 +2,7 @@
   {{#link-to "users.show.intentions.edit" model class="btn"}}Edit{{/link-to}}
   <button small {{action "deleteIntention"}}>Delete</button>
 </div>
-<h5>{{moment-format model.startDate 'DD/MM/YYYY'}} - {{moment-format model.endDate 'DD/MM/YYYY'}}</h5>
+<h5>{{moment-format model.startDate 'Do MMM'}} - {{moment-format model.endDate 'Do MMM'}}</h5>
 <h3>{{model.name}}</h3>
 
 <section>

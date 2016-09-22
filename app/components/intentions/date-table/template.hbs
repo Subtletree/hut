@@ -1,12 +1,12 @@
-{{#if dates}}
+{{#if intention.bookings}}
   <thead>
     <th>Date</th>
     <th>Intention</th>
-    <th>Sleep at</th>
+    <th>Staying at a DOC hut?</th>
   </thead>
   <tbody>
-    {{#each dates as |date|}}
-      {{intentions/date-row date=date}}
+    {{#each sortedBookings as |booking|}}
+      {{intentions/date-row booking=booking selected=booking.hut}}
     {{/each}}
   </tbody>
 {{/if}}

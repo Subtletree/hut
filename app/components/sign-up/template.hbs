@@ -2,12 +2,12 @@
 <form class="forms" {{action "save" on="submit"}}>
   <section>
     <label>First name
-      {{input value=user.first_name}}
+      {{input value=user.firstName}}
     </label>
   </section>
   <section>
     <label>Mobile number
-      {{input value=user.mobile_number}}
+      {{input value=user.mobileNumber}}
     </label>
   </section>
   <section>
@@ -22,7 +22,7 @@
   </section>
   <section>
     <label>Password confirmation
-      {{input type="password" value=user.password_confirmation}}
+      {{input type="password" value=user.passwordConfirmation}}
     </label>
   </section>
     {{error-messages resource=user}}

@@ -5,20 +5,11 @@ moduleForComponent('date-range-picker', 'Integration | Component | date range pi
   integration: true
 });
 
-test('it renders', function(assert) {
+test('it creates 2 inputs', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{date-range-picker}}`);
+  this.render(hbs`{{date-range-picker start='' end=''}}`);
+  assert.equal(this.$('input').length, 2);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#date-range-picker}}
-      template block text
-    {{/date-range-picker}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

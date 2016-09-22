@@ -2,15 +2,15 @@ import Ember from 'ember';
 import IntentionDatesHandler from 'hut/mixins/intention-dates-handler';
 
 export default Ember.Route.extend(IntentionDatesHandler, {
-  model() {
-    return this.store.createRecord('intention');
+  model(params) {
+    return this.store.findRecord('intention', params.intention_id);
   },
   resetController(controller, isExiting) {
     if (isExiting) {
       var model = controller.get('model');
-      if (model.get('isNew')) {
-        this.store.unloadAll('booking');
-        model.unloadRecord();
+      model.get('bookings').filterBy('isNew').invoke('unloadRecord');
+      if (model.get('hasDirtyAttributes')) {
+        model.rollbackAttributes();
       }
     }
   },

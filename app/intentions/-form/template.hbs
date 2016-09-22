@@ -11,7 +11,7 @@
 
       <section>
         <label>Number of participants
-          {{#x-select value=model.number_of_participants action="numParticipantsChanged"}}
+          {{#x-select value=model.numberOfParticipants}}
            {{#x-option value=""}}{{/x-option}}
            {{#x-option value="1"}}1{{/x-option}}
            {{#x-option value="2"}}2{{/x-option}}
@@ -37,7 +37,7 @@
         </label>
       </section>
 
-      {{#x-times model.number_of_participants x_class='x-times-flex'}}
+      {{#x-times model.numberOfParticipants x_class='x-times-flex'}}
         <section>
           <label>Participant name
             {{input value=''}}
@@ -45,20 +45,20 @@
         </section>
       {{/x-times}}
 
-      {{date-range-picker dates=dates start=model.start_date end=model.end_date}}
+      {{date-range-picker start=model.startDate end=model.endDate rangeChanged=(route-action "updateDates")}}
 
     </column>
     <column cols="6">
       <strong>Emergency contact ?</strong>
       <section>
         <label>Name
-          {{input value=model.emergency_name}}
+          {{input value=model.emergencyName}}
         </label>
       </section>
 
       <section>
         <label>Mobile number
-          {{input value=model.emergency_number}}
+          {{input value=model.emergencyNumber}}
         </label>
       </section>
     </column>
@@ -69,9 +69,5 @@
     </column>
   </row>
 </form>
-
-{{#unless session.isAuthenticated}}
-  {{intention-user session=session}}
-{{/unless}}
 
 {{input type="submit" value="Save" class="btn right" disabled=readyForSubmit form="new-intention-form"}}

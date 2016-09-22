@@ -24,8 +24,19 @@ export default  DS.JSONAPIAdapter.extend({
     });
   },
 
+  findRecord: function (store, type, record) {
+    var url = this.buildURL(),
+      data = this.get('data');
+
+    data.where = "OBJECTID='" + record + "'";
+
+    return this.ajax(url, 'GET', {
+      data: data
+    });
+  },
+
   // Doesn't return geometry for performance reasons, use the query to do that.
-  findAll: function (store, type, sinceToken) {
+  findAll: function (/*store, type, sinceToken*/) {
     var url = this.buildURL(),
       data = this.get('data');
 
@@ -66,7 +77,7 @@ export default  DS.JSONAPIAdapter.extend({
     return hash;
   },
 
-  buildURL: function (type, id) {
+  buildURL: function (/*type, id*/) {
     var host = this.get('host'),
       namespace = this.get('namespace');
 
@@ -88,7 +99,7 @@ export default  DS.JSONAPIAdapter.extend({
         }
       };
 
-      hash.error = function (jqXHR, textStatus, errorThrown) {
+      hash.error = function (jqXHR/*, textStatus, errorThrown*/) {
         Ember.run(null, reject, adapter.ajaxError(jqXHR));
       };
 

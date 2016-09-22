@@ -1,3 +1,10 @@
-<td>{{date}}</td>
-<td>{{input}}</td>
-<td>{{input}}</td>
+<td>{{moment-format booking.date 'ddd Do MMMM'}}</td>
+<td>{{input value=booking.comment placeholder="Intentions for this date"}}</td>
+<td>
+  {{#power-select placeholder="Select hut (optional)" loadingMessage="Searching huts" search=(action "searchRepo") allowClear=true selected=selected onchange=(action 'setHut') as |hut|}}
+    {{if hut.attributes.DESCRIPTION hut.attributes.DESCRIPTION selected.name}}
+  {{/power-select}}
+  {{#if selected}}
+    {{selected.hutType}} - {{selected.status}}
+  {{/if}}
+</td>

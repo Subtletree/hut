@@ -1,2 +1,5 @@
 <h3>New Intention</h3>
 {{partial "intentions/-form"}}
+{{#unless session.isAuthenticated}}
+  {{intention-user session=session}}
+{{/unless}}

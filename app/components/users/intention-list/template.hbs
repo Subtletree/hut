@@ -1,4 +1,5 @@
-<h4>Intentions</h4>
-{{#each user.intentions as |intention|}}
-  {{users/intention-display intention=intention}}
-{{/each}}
+<ul>
+  {{#each user.intentions as |intention|}}
+    <li>{{#link-to "users.show.intentions.show" intention}}{{intention.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
